@@ -1,3 +1,4 @@
-export class AddIngredientDto {
+export class AddDeleteIngredientDto {
   name: string;
+  weight: number;
 }
