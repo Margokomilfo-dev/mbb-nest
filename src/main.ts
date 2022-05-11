@@ -9,7 +9,11 @@ async function bootstrap() {
   });
 
   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:3001',
+      'https://mbb-react.herokuapp.com',
+    ],
   });
   await app.listen(PORT, () => {
     console.log('App listen port: ', PORT);
