@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 
-const PORT = process.env.PORT || 5555;
+const port = process.env.PORT || 5555;
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, {
     cors: true,
@@ -16,8 +16,8 @@ async function bootstrap() {
       'https://mbb-react.vercel.app/',
     ],
   });
-  await app.listen(PORT, () => {
-    console.log('App listen port: ', PORT);
+  await app.listen(port, () => {
+    console.log('App listen port: ', port);
   });
 }
 
