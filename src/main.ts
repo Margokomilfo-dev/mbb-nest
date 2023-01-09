@@ -8,14 +8,15 @@ async function bootstrap() {
     cors: true,
   });
 
-  app.enableCors({
-    origin: [
-      'http://localhost:3000',
-      'http://localhost:3001',
-      'https://mbb-react.herokuapp.com',
-      'https://mbb-react.vercel.app',
-    ],
-  });
+  app.enableCors();
+  // app.enableCors({
+  //   origin: [
+  //     'http://localhost:3000',
+  //     'http://localhost:3001',
+  //     'https://mbb-react.herokuapp.com',
+  //     'https://mbb-react.vercel.app',
+  //   ],
+  // });
 
   await app.listen(port, () => {
     console.log('App listen port: ', port);

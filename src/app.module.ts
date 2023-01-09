@@ -11,11 +11,8 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({}),
-    MongooseModule.forRoot(appSettings.api.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }),
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(appSettings.api.MONGO_URL),
     ProductModule,
     RecipeModule,
     WorkoutModule,
