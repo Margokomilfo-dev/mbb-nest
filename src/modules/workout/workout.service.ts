@@ -36,9 +36,9 @@ export class WorkoutService {
 
   async getWorkoutsByCategory(category: WorkoutsEnum) {
     if (+category === WorkoutsEnum['без типа']) {
-      return this.workoutModel.find({});
+      return this.workoutModel.find({}).sort({ category: 1 });
     }
-    return this.workoutModel.find({ category });
+    return this.workoutModel.find({ category }).sort({ day: 1 });
   }
   async getWorkoutsByCategoryAndDay(category: WorkoutsEnum, day: number) {
     const res = await this.workoutModel.findOne({ category, day }).lean();
