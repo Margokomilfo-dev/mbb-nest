@@ -13,7 +13,7 @@ async function bootstrap() {
       'http://localhost:3000',
       'http://localhost:3001',
       'https://mbb-react.herokuapp.com',
-      'https://mbb-react.vercel.app/',
+      'https://mbb-react.vercel.app',
     ],
   });
   await app.listen(port, () => {
