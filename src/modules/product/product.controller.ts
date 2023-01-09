@@ -6,7 +6,6 @@ import { ProductService } from './product.service';
 import { HttpExceptionFilter } from '../../exceptions/http-filter.exception';
 import { ProductEntity } from './entities/product.entity';
 import { ProductCategoryEnum } from '../../settings/types';
-import { ObjectId } from 'mongoose';
 
 @Controller('product')
 @UseFilters(new HttpExceptionFilter())
