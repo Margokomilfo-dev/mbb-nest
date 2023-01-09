@@ -7,9 +7,11 @@ import { appSettings } from './settings/app-settings';
 import { RecipeModule } from './modules/recipe/recipe.module';
 import { WorkoutModule } from './modules/workout/workout.module';
 import { MarathonModule } from './modules/marathon/marathon.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({}),
     MongooseModule.forRoot(appSettings.api.MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

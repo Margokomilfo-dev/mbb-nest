@@ -25,9 +25,7 @@ export class EnvironmentSettings {
 class APISettings {
   public readonly MONGO_URL: string;
   constructor(private envVariables: EnvironmentVariable) {
-    this.MONGO_URL =
-      envVariables.MONGO_URL ||
-      'mongodb+srv://admin:admin@mbb.s8xmj.mongodb.net/mbb?retryWrites=true&w=majority';
+    this.MONGO_URL = envVariables.MONGO_URL || 'test';
   }
 }
 
