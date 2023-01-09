@@ -23,7 +23,6 @@ export class ProductService {
   }
 
   async getProductByName_(name: string) {
-    console.log(name);
     return this.productModel.findOne({ name }, { new: true });
   }
 
@@ -32,9 +31,7 @@ export class ProductService {
   }
 
   async createProduct(dto: CreateProductDto) {
-    console.log(dto);
     const product = await this.productModel.findOne({ name: dto.name }).lean();
-    console.log(product);
     if (!product) return new this.productModel(dto).save();
     if (product) return 'unfortunately';
   }

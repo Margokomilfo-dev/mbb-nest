@@ -17,7 +17,7 @@ export class MarathonService {
     const lunch = await this.recipeService.getRandomRecipe(menuCategory, 3);
     const snack2 = await this.recipeService.getRandomRecipe(menuCategory, 4);
     const dinner = await this.recipeService.getRandomRecipe(menuCategory, 5);
-    console.log(breakfast);
+
     return {
       breakfast,
       snack1,
@@ -32,32 +32,38 @@ export class MarathonService {
         dinner.calories,
     };
   }
+
   async getMenuForDay(menuCategory: MenuEnum, day: number) {
     const breakfast = await this.recipeService.getRecipeForDay(
-      menuCategory,
+      +menuCategory,
       1,
-      day,
+      +day,
     );
+
     const snack1 = await this.recipeService.getRecipeForDay(
-      menuCategory,
+      +menuCategory,
       2,
-      day,
+      +day,
     );
+
     const lunch = await this.recipeService.getRecipeForDay(
-      menuCategory,
+      +menuCategory,
       3,
-      day,
+      +day,
     );
+
     const snack2 = await this.recipeService.getRecipeForDay(
-      menuCategory,
+      +menuCategory,
       4,
-      day,
+      +day,
     );
+
     const dinner = await this.recipeService.getRecipeForDay(
-      menuCategory,
+      +menuCategory,
       5,
-      day,
+      +day,
     );
+
     return {
       breakfast,
       snack1,
@@ -65,13 +71,14 @@ export class MarathonService {
       snack2,
       dinner,
       calories:
-        breakfast.calories +
-        snack1.calories +
-        lunch.calories +
-        snack2.calories +
-        dinner.calories,
+        breakfast?.calories +
+        snack1?.calories +
+        lunch?.calories +
+        snack2?.calories +
+        dinner?.calories,
     };
   }
+
   async getWorkoutForDay(type: WorkoutsEnum, day: number) {
     return await this.workoutService.getWorkoutsByCategoryAndDay(type, day);
   }

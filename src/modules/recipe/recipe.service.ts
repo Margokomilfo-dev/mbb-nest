@@ -17,7 +17,7 @@ export class RecipeService {
   ) {}
 
   async createRecipe(dto: CreateRecipeDto) {
-    const recipe = await this.recipeModel.findOne({ name: dto.name });
+    // const recipe = await this.recipeModel.findOne({ name: dto.name });
     console.log('такой рецепт уже существует');
     let calories = 0;
     let proteins = 0;
@@ -145,10 +145,14 @@ export class RecipeService {
   async getRecipeForDay(menu: MenuEnum, meal: MenuEnum, day: number) {
     if (menu == 0) {
       const res = await this.recipeModel.find({ type: meal }).lean();
-      return res[day - 1];
+      if (res.length > 0) return res[day];
+      return null;
     } else {
-      const res = await this.recipeModel.find({ menu, type: meal }).lean();
-      return res[day - 1];
+      const res = await this.recipeModel
+        .find({ menu: menu, type: meal })
+        .lean();
+      if (res.length > 0) return res[day];
+      return null;
     }
   }
 
