@@ -14,7 +14,6 @@ async function bootstrap() {
       'http://localhost:3001',
       'https://mbb-react.herokuapp.com',
       'https://mbb-react.vercel.app',
-      'https://mbb-nest.vercel.app/product/byName',
     ],
   });
 
